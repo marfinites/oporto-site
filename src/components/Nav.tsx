@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoWordmark } from "./Logo";
 
 const NAV_ITEMS = [
   { href: "/", label: "Início" },
@@ -11,20 +12,12 @@ const NAV_ITEMS = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl bg-[var(--bg)]/70 border-b border-[var(--border)]">
-      <div className="container-x flex items-center justify-between py-4">
-        <Link href="/" className="flex items-baseline gap-2 group">
-          <span className="font-display text-2xl md:text-3xl leading-none">
-            OPORTO DANCEHALL
-          </span>
-          <span
-            className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--accent)]"
-            aria-label="versão 2.0"
-          >
-            2.0
-          </span>
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-[var(--bg)]/85 border-b border-[var(--border)]">
+      <div className="container-x flex items-center justify-between h-16 md:h-20">
+        <Link href="/" className="flex items-center group">
+          <LogoWordmark className="h-9 md:h-11 w-auto" />
         </Link>
-        <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider font-medium">
+        <nav className="hidden md:flex gap-7 mono">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -35,11 +28,8 @@ export function Nav() {
             </Link>
           ))}
         </nav>
-        <Link
-          href="/contactos"
-          className="md:hidden text-xs uppercase tracking-wider text-[var(--accent)]"
-        >
-          Contacto
+        <Link href="/contactos" className="md:hidden mono text-[var(--accent)]">
+          Contacto →
         </Link>
       </div>
     </header>

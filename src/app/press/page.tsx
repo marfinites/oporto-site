@@ -17,63 +17,55 @@ export default function PressPage() {
     <>
       <Nav />
       <main className="flex-1">
-        <section className="container-x py-16 md:py-24">
-          <div className="max-w-3xl">
-            <div className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-              Press Kit · Parceiros · Clubes
+        <section className="container-x pt-16 md:pt-24 pb-16">
+          <div className="grid md:grid-cols-12 gap-6 items-end">
+            <div className="md:col-span-8">
+              <div className="tag mb-6">Press Kit · Parceiros · Clubes</div>
+              <h1 className="display-xl">
+                Press <span className="italic-serif text-[var(--accent)]">kit</span>.
+              </h1>
             </div>
-            <h1 className="font-display text-6xl md:text-8xl leading-none">
-              Press Kit.
-            </h1>
-            <p className="mt-6 text-xl text-[var(--fg-muted)]">
-              Tudo o que precisas para escrever sobre nós, programar uma festa
-              connosco ou propor uma parceria.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/press-kit.pdf"
-                className="px-6 py-3 bg-[var(--accent)] text-black font-bold uppercase tracking-wider text-sm rounded-full"
-              >
-                Descarregar PDF
-              </a>
-              <Link
-                href="/contactos"
-                className="px-6 py-3 border border-[var(--border)] uppercase tracking-wider text-sm rounded-full hover:border-[var(--accent)]"
-              >
-                Falar connosco
-              </Link>
+            <div className="md:col-span-4 md:pl-8 md:border-l md:border-[var(--fg)] space-y-4">
+              <p className="text-base leading-relaxed">
+                Tudo o que precisas para escrever sobre nós, programar uma festa
+                connosco ou propor uma parceria.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="/press-kit.pdf" className="btn-primary">PDF →</a>
+                <Link href="/contactos" className="btn-ghost">Falar connosco</Link>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Key facts */}
-        <section className="container-x py-12 border-t border-[var(--border)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Fact label="Anos de história" value={`${STATS.anos_atividade}`} />
-            <Fact label="Festas realizadas" value={`${STATS.festas_realizadas}+`} />
-            <Fact label="Ficheiros arquivados" value={`${STATS.ficheiros_arquivados}`} />
-            <Fact label="Top engagement" value={`${STATS.top_engagement_post} ♥`} />
+        <section className="border-y border-[var(--fg)] bg-[var(--bg-elevated)]">
+          <div className="container-x py-12 md:py-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--border)]">
+            <Fact label="anos" value={`${STATS.anos_atividade}`} />
+            <Fact label="noites" value={`${STATS.festas_realizadas}+`} />
+            <Fact label="arquivo" value={`${STATS.ficheiros_arquivados}`} />
+            <Fact label="top likes" value={`${STATS.top_engagement_post}`} />
           </div>
         </section>
 
         {/* Bio */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <div className="grid md:grid-cols-3 gap-12">
-            <h2 className="font-display text-4xl md:text-5xl leading-tight md:col-span-1">
-              Bio
-            </h2>
-            <div className="md:col-span-2 space-y-4 text-lg leading-relaxed">
+        <section className="container-x py-24 md:py-36">
+          <div className="grid md:grid-cols-12 gap-12">
+            <div className="md:col-span-4">
+              <div className="tag mb-6">Bio</div>
+              <h2 className="display-lg">A marca.</h2>
+            </div>
+            <div className="md:col-span-7 md:col-start-6 space-y-5 text-lg leading-relaxed">
               <p>
-                <strong>Oporto Dancehall 2.0</strong> é a festa de dancehall
-                jamaicano do Porto. Desde 2014, encheu lotações esgotadas em
-                clubes como o Hard Club, Armazém do Chá e Gare Porto, com
-                cobertura no Correio da Manhã, Jornal de Notícias, Cidade FM e
-                Rádio Nova.
+                <strong>Oporto Dancehall 2.0</strong> é a festa de dancehall jamaicano do
+                Porto. Desde 2014, encheu lotações esgotadas em clubes como o
+                Hard Club, Armazém do Chá e Gare Porto, com cobertura no Correio
+                da Manhã, Jornal de Notícias, Cidade FM e Rádio Nova.
               </p>
               <p>
-                A festa nasce da paixão por <em>dancehall a sério</em> — riddims,
-                dubplates exclusivos (Konshens, Charly Black), DJs residentes
-                (DJ/MC BOOM, DJ Overule) e uma comunidade fiel.
+                A festa nasce da paixão por <em className="italic-serif">dancehall a sério</em> —
+                riddims, dubplates exclusivos (Konshens, Charly Black), DJs
+                residentes (DJ/MC BOOM, DJ Overule) e uma comunidade fiel.
               </p>
               <p>
                 Em 2026, regressa em pleno: site, calendário próprio, novos
@@ -84,33 +76,34 @@ export default function PressPage() {
         </section>
 
         {/* Boilerplates */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <h2 className="font-display text-4xl md:text-5xl mb-8">
-            Descrições prontas
-          </h2>
+        <section className="container-x py-24 border-t border-[var(--fg)]">
+          <div className="tag mb-6">Descrições prontas</div>
+          <h2 className="display-md mb-12">Copia · cola.</h2>
           <div className="space-y-6">
             <BoilerplateBlock
-              label="Curta (140 caracteres)"
+              label="Curta · 140 caracteres"
               text="Oporto Dancehall 2.0 — a festa de dancehall jamaicano do Porto está de volta. 11 anos de história, novo capítulo em 2026."
             />
             <BoilerplateBlock
-              label="Média (300 caracteres)"
+              label="Média · 300 caracteres"
               text="Oporto Dancehall 2.0 é a festa de dancehall do Porto. Desde 2014, encheu o Hard Club, Armazém do Chá e Gare Porto com noites de riddim, dubplates jamaicanos exclusivos e uma comunidade fiel. Em 2026, regressa em força com novo site, novos parceiros e mesmo espírito."
             />
           </div>
         </section>
 
         {/* Press mentions */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <h2 className="font-display text-4xl md:text-5xl mb-8">Cobertura</h2>
+        <section className="container-x py-24 border-t border-[var(--fg)]">
+          <div className="grid md:grid-cols-12 gap-12 items-end mb-12">
+            <h2 className="display-lg md:col-span-6">Cobertura.</h2>
+            <p className="md:col-span-5 md:col-start-8 text-[var(--fg-muted)]">
+              Citações disponíveis para reuso editorial. Pedido por email.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-4">
             {PRESS.map((p) => (
-              <div
-                key={p.outlet}
-                className="p-6 rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]"
-              >
-                <div className="font-display text-2xl">{p.outlet}</div>
-                <div className="mt-1 text-sm text-[var(--fg-muted)]">
+              <div key={p.outlet} className="p-6 md:p-8 border border-[var(--fg)]">
+                <div className="font-display text-3xl md:text-4xl">{p.outlet}</div>
+                <div className="mono mt-2 text-[var(--fg-muted)]">
                   {p.year} · {p.type}
                 </div>
               </div>
@@ -119,16 +112,13 @@ export default function PressPage() {
         </section>
 
         {/* Venues */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <h2 className="font-display text-4xl md:text-5xl mb-8">
-            Clubes onde já fizemos festa
+        <section className="container-x py-24 border-t border-[var(--fg)]">
+          <h2 className="display-lg mb-12">
+            Clubes onde já fizemos <span className="italic-serif">casa</span>.
           </h2>
           <div className="flex flex-wrap gap-3">
             {VENUES_PASSADOS.map((v) => (
-              <span
-                key={v}
-                className="px-4 py-2 rounded-full border border-[var(--border)] text-sm"
-              >
+              <span key={v} className="tag text-base px-5 py-3">
                 {v}
               </span>
             ))}
@@ -136,22 +126,18 @@ export default function PressPage() {
         </section>
 
         {/* Photos */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <h2 className="font-display text-4xl md:text-5xl mb-8">
-            Fotos disponíveis
-          </h2>
-          <p className="text-[var(--fg-muted)] mb-8 max-w-2xl">
-            Todas as fotos abaixo estão disponíveis em alta resolução. Créditos a
-            usar: <em>&ldquo;Oporto Dancehall arquivo&rdquo;</em>, com créditos
-            adicionais a fotógrafos quando aplicável (Francisca Garcia, Daniel
-            Batista).
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <section className="container-x py-24 border-t border-[var(--fg)]">
+          <div className="grid md:grid-cols-12 gap-12 items-end mb-12">
+            <h2 className="display-lg md:col-span-6">Fotos hi-res.</h2>
+            <p className="md:col-span-5 md:col-start-8 text-[var(--fg-muted)] leading-relaxed">
+              Todas em alta resolução. Créditos a usar:{" "}
+              <em className="italic-serif">&ldquo;Oporto Dancehall arquivo&rdquo;</em>, com
+              créditos a fotógrafos quando aplicável (Francisca Garcia, Daniel Batista).
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {showcasePhotos.map((item) => (
-              <div
-                key={item.id}
-                className="relative aspect-square rounded-lg overflow-hidden bg-[var(--bg-elevated)]"
-              >
+              <div key={item.id} className="photo-card aspect-square">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -165,20 +151,17 @@ export default function PressPage() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="border-t border-[var(--border)] bg-[var(--bg-elevated)] py-20">
-          <div className="container-x max-w-2xl text-center">
-            <h2 className="font-display text-4xl md:text-5xl mb-6">
-              Contacto imprensa & parcerias
+        {/* CTA */}
+        <section className="border-t border-[var(--fg)] bg-[var(--bg-inverse)] text-[var(--bg)]">
+          <div className="container-x py-24 text-center">
+            <h2 className="display-lg mb-8">
+              Falar <span className="italic-serif">connosco</span>.
             </h2>
-            <p className="text-[var(--fg-muted)] mb-8">
+            <p className="mb-10 max-w-md mx-auto leading-relaxed">
               Resposta em 24-48h em dias úteis.
             </p>
-            <Link
-              href="/contactos"
-              className="inline-block px-8 py-4 bg-[var(--accent)] text-black font-bold uppercase tracking-wider rounded-full"
-            >
-              Falar connosco →
+            <Link href="/contactos" className="btn-primary" style={{ background: "var(--accent)", color: "var(--accent-fg)" }}>
+              Contactar →
             </Link>
           </div>
         </section>
@@ -191,23 +174,17 @@ export default function PressPage() {
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div>
-      <div className="font-display text-5xl md:text-6xl text-[var(--accent)] leading-none">
-        {value}
-      </div>
-      <div className="mt-2 text-xs uppercase tracking-wider text-[var(--fg-muted)]">
-        {label}
-      </div>
+    <div className="bg-[var(--bg-elevated)] p-6 md:p-10">
+      <div className="font-display text-6xl md:text-8xl leading-none">{value}</div>
+      <div className="mono mt-3 text-[var(--fg-muted)]">{label}</div>
     </div>
   );
 }
 
 function BoilerplateBlock({ label, text }: { label: string; text: string }) {
   return (
-    <div className="p-6 rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)]">
-      <div className="text-xs uppercase tracking-wider text-[var(--accent)] mb-3">
-        {label}
-      </div>
+    <div className="p-6 md:p-8 border border-[var(--fg)]">
+      <div className="mono text-[var(--accent)] mb-4">{label}</div>
       <p className="leading-relaxed">{text}</p>
     </div>
   );

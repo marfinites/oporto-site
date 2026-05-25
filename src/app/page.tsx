@@ -3,221 +3,205 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { VibeSwitcher } from "@/components/VibeSwitcher";
-import { ARCHIVE, HIGHLIGHTS, STATS } from "@/lib/archive";
+import { LogoCircle } from "@/components/Logo";
+import { ARCHIVE, STATS } from "@/lib/archive";
+import type { ArchiveItem } from "@/lib/archive";
 
 export default function Home() {
-  const marqueeWords = [
-    "ESTAMOS DE VOLTA",
-    "★",
-    "OPORTO DANCEHALL 2.0",
-    "★",
-    "NOVO CAPÍTULO",
-    "★",
-    "2026",
-    "★",
-  ];
-
   return (
     <>
       <Nav />
       <main className="flex-1">
-        {/* HERO */}
-        <section className="relative overflow-hidden">
-          <div className="container-x py-20 md:py-32 relative">
-            <div className="flex flex-col gap-4 md:gap-6 max-w-5xl">
-              <span className="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.3em] text-[var(--accent)]">
-                <span className="size-2 rounded-full bg-[var(--accent)] animate-pulse" />
-                Estamos de volta · 2026
-              </span>
-              <h1 className="font-display text-[clamp(3.5rem,12vw,12rem)] leading-[0.85] tracking-tight">
-                OPORTO
-                <br />
-                DANCEHALL
-                <br />
-                <span className="text-[var(--accent)] glow">2.0</span>
-              </h1>
-              <p className="mt-6 text-xl md:text-2xl text-[var(--fg-muted)] max-w-2xl">
-                A festa que pôs o dancehall a sério no Porto está a preparar o regresso.
-                11 anos de história, novo capítulo.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/arquivo"
-                  className="px-6 py-3 bg-[var(--accent)] text-black font-bold uppercase tracking-wider text-sm rounded-full hover:scale-105 transition-transform"
-                >
-                  Ver arquivo →
-                </Link>
-                <Link
-                  href="/eventos"
-                  className="px-6 py-3 border border-[var(--border)] uppercase tracking-wider text-sm rounded-full hover:border-[var(--accent)] transition-colors"
-                >
-                  Próximas datas
-                </Link>
+        {/* ═══════════════════════════════════════════════════════════
+            HERO — Editorial magazine cover style
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="relative">
+          <div className="container-x pt-10 md:pt-16 pb-8">
+            <div className="grid md:grid-cols-12 gap-6 items-end">
+              <div className="md:col-span-7">
+                {/* Issue line */}
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="tag">★ Issue 001 / 2026</span>
+                  <span className="mono text-[var(--fg-muted)]">est. 2014</span>
+                </div>
+
+                <h1 className="display-xl">
+                  Oporto<br />
+                  <span className="italic-serif text-[var(--accent)]">dancehall</span><br />
+                  2.0
+                </h1>
               </div>
+
+              <div className="md:col-span-5 md:pl-8 md:border-l md:border-[var(--fg)] flex flex-col gap-6">
+                <p className="text-base md:text-lg leading-relaxed">
+                  A festa de dancehall do Porto está de regresso.
+                  <span className="italic-serif"> Onze anos</span>, mais de trinta noites,
+                  novo capítulo.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/arquivo" className="btn-primary">Arquivo →</Link>
+                  <Link href="/eventos" className="btn-ghost">Próximas datas</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Big photo — Torre dos Clérigos */}
+          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-[var(--bg-inverse)]">
+            <Image
+              src="/arquivo/photos/p051_estamos_de_volta.jpg"
+              alt="Oporto Dancehall · Torre dos Clérigos"
+              fill
+              className="object-cover photo-treat"
+              priority
+              sizes="100vw"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 right-4 md:right-8 flex justify-between items-end text-white">
+              <span className="mono">Torre dos Clérigos · Porto</span>
+              <span className="mono">FIG. 001</span>
             </div>
           </div>
         </section>
 
-        {/* MARQUEE */}
-        <section className="border-y border-[var(--border)] py-6 overflow-hidden bg-[var(--bg-elevated)]">
-          <div className="marquee-track flex gap-12 whitespace-nowrap font-display text-4xl md:text-6xl">
-            {[...marqueeWords, ...marqueeWords, ...marqueeWords].map((w, i) => (
-              <span key={i} className="text-[var(--fg)]">
-                {w}
-              </span>
-            ))}
+        {/* ═══════════════════════════════════════════════════════════
+            MARQUEE — slow editorial scroll
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="border-y border-[var(--fg)] py-4 md:py-6 overflow-hidden bg-[var(--bg)]">
+          <div className="marquee-track flex gap-12 whitespace-nowrap font-display text-3xl md:text-5xl uppercase">
+            {Array.from({ length: 6 }).flatMap((_, i) => [
+              <span key={`a${i}`}>Estamos de volta</span>,
+              <span key={`b${i}`} className="text-[var(--accent)]">★</span>,
+              <span key={`c${i}`} className="italic-serif">since 2014</span>,
+              <span key={`d${i}`} className="text-[var(--accent)]">★</span>,
+              <span key={`e${i}`}>Porto · Portugal</span>,
+              <span key={`f${i}`} className="text-[var(--accent)]">★</span>,
+            ])}
           </div>
         </section>
 
-        {/* STATS */}
-        <section className="container-x py-20 md:py-28">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <Stat number={`${STATS.anos_atividade}`} label="anos de história" />
-            <Stat number={`${STATS.festas_realizadas}+`} label="festas realizadas" />
-            <Stat number={`${STATS.imprensa_outlets}`} label="outlets imprensa" />
-            <Stat number={`${STATS.top_engagement_post}`} label="top post likes" />
-          </div>
-        </section>
-
-        {/* MANIFESTO */}
-        <section className="container-x py-20 md:py-28">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-                Manifesto
-              </div>
-              <h2 className="font-display text-5xl md:text-7xl leading-none">
-                Não somos
-                <br />
-                <span className="text-[var(--accent-2)]">um remember</span>.
-                <br />
-                Somos o capítulo a seguir.
+        {/* ═══════════════════════════════════════════════════════════
+            MANIFESTO — Editorial two-column
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="container-x py-24 md:py-36">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-16">
+            <div className="md:col-span-5">
+              <div className="tag mb-8">Manifesto</div>
+              <h2 className="display-lg">
+                Não somos<br />
+                um <span className="italic-serif">remember</span>.
               </h2>
             </div>
-            <div className="text-lg leading-relaxed text-[var(--fg-muted)] space-y-4">
+            <div className="md:col-span-6 md:col-start-7 space-y-5 text-lg leading-relaxed">
               <p>
-                Entre 2014 e 2016 enchemos o Armazém do Chá, o Hard Club e o Gare Porto
-                com noites de dancehall a sério. Lotações esgotadas, imprensa, uma
-                crew, uma comunidade.
+                Entre <strong>2014 e 2016</strong> enchemos o Armazém do Chá, o Hard Club
+                e o Gare Porto com noites de dancehall a sério. Lotações esgotadas,
+                cobertura na imprensa nacional, uma crew, uma comunidade.
               </p>
               <p>
-                Depois parámos. Em 2025 voltámos ao Gare Porto para as Summer Sessions.
+                Depois parámos. Em 2025 voltámos ao Gare Porto para as Summer Sessions —
+                só para testar se ainda fazíamos sentido.
               </p>
-              <p className="text-[var(--fg)] font-medium">
-                Em 2026 voltamos em grande — site, calendário, novos clubes, novos
-                convidados, mesmo espírito.{" "}
-                <span className="text-[var(--accent)]">Estamos juntos.</span>
+              <p className="text-[var(--accent)] font-medium text-xl italic-serif">
+                Fez-se.
+              </p>
+              <p>
+                Em 2026 voltamos em pleno. Site, calendário próprio, novos clubes,
+                novos convidados. Mesmo espírito.
               </p>
             </div>
           </div>
         </section>
 
-        {/* HIGHLIGHTS GRID */}
-        <section className="container-x py-20 md:py-28">
+        {/* ═══════════════════════════════════════════════════════════
+            STATS — Big numbers grid
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="border-y border-[var(--fg)] bg-[var(--bg-elevated)]">
+          <div className="container-x py-16 md:py-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--border)]">
+            <Stat number={`${STATS.anos_atividade}`} label="anos" />
+            <Stat number={`${STATS.festas_realizadas}+`} label="noites" />
+            <Stat number={`${STATS.imprensa_outlets}`} label="imprensa" />
+            <Stat number={`${STATS.top_engagement_post}`} label="top likes" />
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════════════
+            ARQUIVO HIGHLIGHTS — Asymmetric editorial grid
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="container-x py-24 md:py-36">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-3">
-                Highlights do arquivo
-              </div>
-              <h2 className="font-display text-5xl md:text-6xl leading-none">
-                Foi assim.
+              <div className="tag mb-6">Highlights · 2014–2025</div>
+              <h2 className="display-lg">
+                Foi <span className="italic-serif">assim</span>.
               </h2>
             </div>
-            <Link
-              href="/arquivo"
-              className="hidden md:inline-flex text-sm uppercase tracking-wider hover:text-[var(--accent)]"
-            >
-              Ver tudo →
+            <Link href="/arquivo" className="hidden md:inline-flex btn-ghost">
+              146 items →
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {ARCHIVE.slice(0, 12).map((item) => (
-              <Link
-                key={item.id}
-                href={`/arquivo#${item.id}`}
-                className="group relative aspect-square overflow-hidden rounded-lg bg-[var(--bg-elevated)]"
-              >
-                {item.type === "video" ? (
-                  <>
-                    <Image
-                      src={item.thumb || item.src}
-                      alt={item.alt}
-                      fill
-                      className="object-cover transition-transform group-hover:scale-110"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      unoptimized
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="size-12 rounded-full bg-[var(--accent)]/90 backdrop-blur-sm flex items-center justify-center text-black">
-                        ▶
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    unoptimized
-                  />
-                )}
-                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-                  <span className="text-xs font-mono text-[var(--accent)]">
-                    {item.era}
-                  </span>
-                </div>
-              </Link>
+
+          {/* Asymmetric editorial grid */}
+          <div className="grid grid-cols-12 gap-3 md:gap-4">
+            {/* Big left */}
+            <div className="col-span-12 md:col-span-7 photo-card aspect-[4/3]">
+              <PhotoFeed item={ARCHIVE[20]} priority />
+            </div>
+            {/* Stack right */}
+            <div className="col-span-12 md:col-span-5 grid grid-rows-2 gap-3 md:gap-4">
+              <div className="photo-card aspect-[4/3] md:aspect-auto">
+                <PhotoFeed item={ARCHIVE[6]} />
+              </div>
+              <div className="photo-card aspect-[4/3] md:aspect-auto">
+                <PhotoFeed item={ARCHIVE[7]} />
+              </div>
+            </div>
+            {/* 4 cards row */}
+            {ARCHIVE.slice(10, 14).map((item) => (
+              <div key={item.id} className="col-span-6 md:col-span-3 photo-card aspect-square">
+                <PhotoFeed item={item} />
+              </div>
             ))}
+            {/* Wide */}
+            <div className="col-span-12 md:col-span-8 photo-card aspect-[16/9]">
+              <PhotoFeed item={ARCHIVE[8]} />
+            </div>
+            <div className="col-span-12 md:col-span-4 photo-card aspect-[4/3] md:aspect-auto">
+              <PhotoFeed item={ARCHIVE[14]} />
+            </div>
           </div>
         </section>
 
-        {/* CALL TO PARTNERS */}
-        <section className="border-t border-[var(--border)] py-20 md:py-28 bg-[var(--bg-elevated)]">
-          <div className="container-x grid md:grid-cols-2 gap-12">
-            <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
+        {/* ═══════════════════════════════════════════════════════════
+            PARTNERS CALL — full bleed photo + text
+            ═══════════════════════════════════════════════════════════ */}
+        <section className="relative bg-[var(--bg-inverse)] text-[var(--bg)]" style={{ color: "var(--bg)" }}>
+          <div className="container-x py-24 md:py-36 grid md:grid-cols-12 gap-8 md:gap-16 items-center">
+            <div className="md:col-span-6">
+              <LogoCircle size={120} className="mb-8" />
+              <div className="tag mb-6 border-[var(--bg)]" style={{ borderColor: "var(--bg)" }}>
                 Para clubes & promotores
               </div>
-              <h2 className="font-display text-4xl md:text-5xl leading-tight">
-                Queres ter Oporto Dancehall no teu clube?
+              <h2 className="display-lg">
+                Queres ter Oporto Dancehall<br />
+                no <span className="italic-serif">teu clube</span>?
               </h2>
-              <p className="mt-4 text-[var(--fg-muted)] text-lg max-w-md">
-                Temos histórico, audiência e cobertura de imprensa para encher casa.
-                Vê o Press Kit e fala connosco.
+            </div>
+            <div className="md:col-span-6 space-y-6">
+              <p className="text-lg leading-relaxed">
+                Histórico de lotações esgotadas em Hard Club, Armazém do Chá, Gare Porto.
+                Cobertura imprensa Correio da Manhã / JN / Cidade FM.
+                Audiência fiel, dubplates internacionais, identidade visual cuidada.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/press"
-                  className="px-6 py-3 bg-[var(--accent)] text-black font-bold uppercase tracking-wider text-sm rounded-full"
-                >
-                  Press Kit
+              <div className="flex flex-wrap gap-3">
+                <Link href="/press" className="btn-primary" style={{ background: "var(--bg)", color: "var(--fg)" }}>
+                  Press Kit →
                 </Link>
-                <Link
-                  href="/contactos"
-                  className="px-6 py-3 border border-[var(--accent)] text-[var(--accent)] uppercase tracking-wider text-sm rounded-full"
-                >
+                <Link href="/contactos" className="btn-ghost" style={{ borderColor: "var(--bg)" }}>
                   Contactar
                 </Link>
               </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              {HIGHLIGHTS.slice(0, 4).map((item) => (
-                <div
-                  key={item.id}
-                  className="relative aspect-square rounded-lg overflow-hidden"
-                >
-                  <Image
-                    src={item.type === "video" ? item.thumb! : item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    unoptimized
-                  />
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -230,13 +214,39 @@ export default function Home() {
 
 function Stat({ number, label }: { number: string; label: string }) {
   return (
-    <div className="border-l-2 border-[var(--accent)] pl-4">
-      <div className="font-display text-6xl md:text-7xl leading-none">
-        {number}
-      </div>
-      <div className="mt-2 text-sm uppercase tracking-wider text-[var(--fg-muted)]">
-        {label}
-      </div>
+    <div className="bg-[var(--bg-elevated)] p-6 md:p-10">
+      <div className="font-display text-6xl md:text-8xl leading-none">{number}</div>
+      <div className="mono text-[var(--fg-muted)] mt-3">{label}</div>
     </div>
   );
 }
+
+function PhotoFeed({ item, priority }: { item: ArchiveItem | undefined; priority?: boolean }) {
+  if (!item) return null;
+  const src = item.type === "video" ? item.thumb || item.src : item.src;
+  return (
+    <Link href={`/arquivo#${item.id}`} className="block size-full relative group">
+      <Image
+        src={src}
+        alt={item.alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        priority={priority}
+        unoptimized
+      />
+      <div className="absolute inset-x-0 bottom-0 p-3 md:p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent text-white">
+        <div className="mono text-[10px]">{item.era}</div>
+        {item.caption && (
+          <div className="mt-1 text-sm font-medium line-clamp-2">{item.caption}</div>
+        )}
+      </div>
+      {item.type === "video" && (
+        <div className="absolute top-3 left-3 size-8 rounded-full bg-white/95 flex items-center justify-center text-black text-xs">
+          ▶
+        </div>
+      )}
+    </Link>
+  );
+}
+

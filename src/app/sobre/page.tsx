@@ -13,93 +13,77 @@ export default function SobrePage() {
     <>
       <Nav />
       <main className="flex-1">
-        <section className="container-x py-16 md:py-24">
-          <div className="max-w-4xl">
-            <div className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-              Sobre nós
-            </div>
-            <h1 className="font-display text-6xl md:text-8xl leading-none">
-              A história.
-            </h1>
-            <div className="mt-12 grid md:grid-cols-3 gap-8">
-              <div className="md:col-span-2 space-y-6 text-lg leading-relaxed">
-                <p>
-                  Oporto Dancehall nasceu em 2014 com uma ideia simples:{" "}
-                  <strong className="text-[var(--fg)]">
-                    o Porto merecia noites de dancehall jamaicano a sério
-                  </strong>
-                  . Não &ldquo;reggae chill&rdquo;, não &ldquo;world music&rdquo;.{" "}
-                  Dancehall do duro — riddims, dubplates, gyals dance, soundclash.
-                </p>
-                <p>
-                  Em 2014/2015 enchemos as primeiras Summer Sessions no Desperados.
-                  Em 2015/2016 saltámos para o{" "}
-                  <strong className="text-[var(--fg)]">Hard Club</strong>, o{" "}
-                  <strong className="text-[var(--fg)]">Armazém do Chá</strong> e
-                  o <strong className="text-[var(--fg)]">Gare Porto</strong> com lotações
-                  esgotadas e cobertura no Correio da Manhã, Jornal de Notícias,
-                  Cidade FM e Rádio Nova.
-                </p>
-                <p>
-                  No carnaval de 2016 celebrámos o 3.º aniversário com os mítos
-                  Firestarter Sound, Still Lion e One Vibe — depois fizemos uma
-                  pausa.
-                </p>
-                <p>
-                  Em <strong className="text-[var(--fg)]">2025</strong> voltámos
-                  ao Gare Porto para as Summer Sessions com Bélgica e Jamaica
-                  representadas.
-                </p>
-                <p className="text-2xl font-display leading-tight text-[var(--fg)]">
-                  Em <span className="text-[var(--accent)]">2026</span> voltamos
-                  em força. Site, calendário, novos parceiros. Mesmo espírito.
-                </p>
-              </div>
-              <aside className="space-y-8">
-                <div>
-                  <h3 className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-3">
-                    Clubes onde tocámos
-                  </h3>
-                  <ul className="space-y-1 text-sm">
-                    {VENUES_PASSADOS.map((v) => (
-                      <li key={v}>{v}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-3">
-                    DJs & Crews
-                  </h3>
-                  <ul className="space-y-1 text-sm">
-                    {ARTISTAS_PASSADOS.map((a) => (
-                      <li key={a}>{a}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs uppercase tracking-[0.3em] text-[var(--accent)] mb-3">
-                    Imprensa
-                  </h3>
-                  <ul className="space-y-1 text-sm">
-                    {PRESS.map((p) => (
-                      <li key={p.outlet}>
-                        {p.outlet}{" "}
-                        <span className="text-[var(--fg-muted)] text-xs">
-                          ({p.year})
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </aside>
-            </div>
+        <section className="container-x pt-16 md:pt-24 pb-16">
+          <div className="tag mb-6">Sobre · est. 2014</div>
+          <h1 className="display-xl">
+            A <span className="italic-serif text-[var(--accent)]">história</span>.
+          </h1>
+        </section>
+
+        <section className="container-x pb-24 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-7 space-y-6 text-lg leading-relaxed">
+            <p>
+              <strong>Oporto Dancehall</strong> nasceu em 2014 com uma ideia simples:
+              <em className="italic-serif"> o Porto merecia noites de dancehall jamaicano a sério</em>.
+              Não &ldquo;reggae chill&rdquo;, não &ldquo;world music&rdquo;.
+              Dancehall do duro — riddims, dubplates, gyals dance, soundclash.
+            </p>
+            <p>
+              Em 2014/2015 enchemos as primeiras Summer Sessions no Desperados.
+              Em 2015/2016 saltámos para o <strong>Hard Club</strong>, o{" "}
+              <strong>Armazém do Chá</strong> e o <strong>Gare Porto</strong> com
+              lotações esgotadas e cobertura no Correio da Manhã, Jornal de Notícias,
+              Cidade FM e Rádio Nova.
+            </p>
+            <p>
+              No carnaval de 2016 celebrámos o 3.º aniversário com os míticos
+              Firestarter Sound, Still Lion e One Vibe — depois fizemos uma pausa.
+            </p>
+            <p>
+              Em <strong>2025</strong> voltámos ao Gare Porto para as Summer Sessions,
+              com a Bélgica e a Jamaica representadas.
+            </p>
+            <p className="display-md italic-serif leading-tight">
+              Em <span className="text-[var(--accent)]">2026</span> voltamos em força.
+            </p>
           </div>
+
+          <aside className="md:col-span-4 md:col-start-9 space-y-10 md:border-l md:border-[var(--border)] md:pl-8">
+            <div>
+              <div className="mono text-[var(--fg-subtle)] mb-3">Clubes onde tocámos</div>
+              <ul className="space-y-1.5 text-sm">
+                {VENUES_PASSADOS.map((v) => (
+                  <li key={v}>{v}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="mono text-[var(--fg-subtle)] mb-3">DJs & Crews</div>
+              <ul className="space-y-1.5 text-sm">
+                {ARTISTAS_PASSADOS.map((a) => (
+                  <li key={a}>{a}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="mono text-[var(--fg-subtle)] mb-3">Imprensa</div>
+              <ul className="space-y-1.5 text-sm">
+                {PRESS.map((p) => (
+                  <li key={p.outlet}>
+                    {p.outlet}{" "}
+                    <span className="mono text-[var(--fg-muted)]">({p.year})</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </section>
 
         {/* Timeline */}
-        <section className="container-x py-20 border-t border-[var(--border)]">
-          <h2 className="font-display text-5xl md:text-6xl mb-12">Timeline</h2>
-          <ol className="space-y-8 relative border-l border-[var(--border)] pl-8">
+        <section className="container-x pb-24 border-t border-[var(--fg)] pt-16">
+          <div className="tag mb-6">Timeline</div>
+          <h2 className="display-lg mb-12">Onze anos.</h2>
+          <ol className="space-y-12 md:space-y-16">
             <TimelineItem
               year="2014"
               title="Arranque"
@@ -112,8 +96,8 @@ export default function SobrePage() {
             />
             <TimelineItem
               year="2016"
-              title="3º aniversário + Crew"
-              desc="Carnaval com Firestarter, Still Lion, One Vibe. Anúncio da escola/crew com 297 likes (recorde da página)."
+              title="3º Aniversário + Crew"
+              desc="Carnaval com Firestarter, Still Lion, One Vibe. Anúncio da escola/crew com 297 likes — recorde da página."
             />
             <TimelineItem
               year="2018"
@@ -152,15 +136,20 @@ function TimelineItem({
   highlight?: boolean;
 }) {
   return (
-    <li className="relative">
-      <span
-        className={`absolute -left-[42px] size-3 rounded-full ${
-          highlight ? "bg-[var(--accent)] animate-pulse" : "bg-[var(--fg-muted)]"
-        }`}
-      />
-      <div className="font-mono text-sm text-[var(--accent)] mb-1">{year}</div>
-      <h3 className="font-display text-3xl mb-2">{title}</h3>
-      <p className="text-[var(--fg-muted)] max-w-2xl">{desc}</p>
+    <li className="grid md:grid-cols-12 gap-6 md:gap-8 items-baseline">
+      <div className="md:col-span-3">
+        <span
+          className={`font-display text-7xl md:text-8xl leading-none ${
+            highlight ? "text-[var(--accent)]" : ""
+          }`}
+        >
+          {year}
+        </span>
+      </div>
+      <div className="md:col-span-9 md:border-l md:border-[var(--border)] md:pl-8">
+        <h3 className="display-md mb-3">{title}</h3>
+        <p className="text-[var(--fg-muted)] max-w-2xl leading-relaxed">{desc}</p>
+      </div>
     </li>
   );
 }

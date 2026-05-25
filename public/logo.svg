@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <!-- Outer ring -->
+  <circle cx="120" cy="120" r="116" stroke="currentColor" stroke-width="3"/>
+
+  <!-- Torre dos Clérigos silhouette -->
+  <g fill="currentColor">
+    <!-- Base/pedestal -->
+    <rect x="103" y="98" width="34" height="6"/>
+    <!-- Tower body (multiple stacked sections) -->
+    <rect x="107" y="86" width="26" height="12"/>
+    <rect x="109" y="74" width="22" height="12"/>
+    <rect x="111" y="62" width="18" height="12"/>
+    <!-- Belfry openings (small windows) -->
+    <rect x="115" y="78" width="3" height="6" fill="#000"/>
+    <rect x="122" y="78" width="3" height="6" fill="#000"/>
+    <rect x="117" y="66" width="3" height="6" fill="#000"/>
+    <rect x="120" y="66" width="3" height="6" fill="#000"/>
+    <!-- Spire / cupola -->
+    <path d="M 120 38 L 130 62 L 110 62 Z"/>
+    <!-- Cross at top -->
+    <rect x="118.5" y="28" width="3" height="12"/>
+    <rect x="115" y="32" width="10" height="3"/>
+  </g>
+
+  <!-- "OPORTO" arch text top -->
+  <defs>
+    <path id="topArc" d="M 30 120 A 90 90 0 0 1 210 120" />
+    <path id="bottomArc" d="M 30 130 A 90 90 0 0 0 210 130" />
+  </defs>
+
+  <text font-family="'Anton', 'Bebas Neue', 'Impact', sans-serif" font-size="32" font-weight="400" fill="currentColor" letter-spacing="4">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">OPORTO</textPath>
+  </text>
+
+  <text font-family="'Anton', 'Bebas Neue', 'Impact', sans-serif" font-size="26" font-weight="400" fill="currentColor" letter-spacing="3">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">DANCEHALL</textPath>
+  </text>
+</svg>

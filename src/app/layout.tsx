@@ -1,42 +1,43 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter, Space_Grotesk, Monoton, Outfit } from "next/font/google";
+import { Anton, Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const bebas = Bebas_Neue({
-  variable: "--font-bebas",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
+});
+
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-});
-
-const monoton = Monoton({
-  variable: "--font-monoton",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Oporto Dancehall 2.0 — Estamos de volta",
   description:
-    "A festa de dancehall do Porto está de regresso. 11 anos de história, novo capítulo.",
+    "A festa de dancehall do Porto está de regresso. 11 anos, 30+ noites, novo capítulo em 2026.",
   openGraph: {
     title: "Oporto Dancehall 2.0",
     description: "Estamos de volta.",
     locale: "pt_PT",
+    type: "website",
   },
 };
 
@@ -48,12 +49,8 @@ export default function RootLayout({
   return (
     <html
       lang="pt-PT"
-      data-vibe="caribean"
-      className={`${bebas.variable} ${inter.variable} ${spaceGrotesk.variable} ${monoton.variable} ${outfit.variable} h-full antialiased`}
-      style={{
-        // map next/font CSS vars into our design tokens via inline override per vibe
-        // each vibe page will set data-vibe; default is caribean
-      }}
+      data-vibe="street"
+      className={`${anton.variable} ${instrument.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col grain">{children}</body>
     </html>
