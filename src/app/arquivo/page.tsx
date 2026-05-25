@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { VibeSwitcher } from "@/components/VibeSwitcher";
 import { ArchiveCard } from "@/components/ArchiveCard";
 import { ARCHIVE } from "@/lib/archive";
 import type { ArchiveItem } from "@/lib/archive";
@@ -61,7 +60,6 @@ export default function ArquivoPage() {
         ))}
       </main>
       <Footer />
-      <VibeSwitcher />
     </>
   );
 }

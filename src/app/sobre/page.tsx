@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { VibeSwitcher } from "@/components/VibeSwitcher";
 import { VENUES_PASSADOS, ARTISTAS_PASSADOS, PRESS } from "@/lib/archive";
 
 export const metadata = {
@@ -119,7 +118,6 @@ export default function SobrePage() {
         </section>
       </main>
       <Footer />
-      <VibeSwitcher />
     </>
   );
 }

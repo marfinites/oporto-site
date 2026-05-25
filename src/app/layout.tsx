@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Anton, Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import {
+  Anton,
+  Inter,
+  Instrument_Serif,
+  JetBrains_Mono,
+  Permanent_Marker,
+} from "next/font/google";
 import "./globals.css";
 
 const anton = Anton({
@@ -29,6 +35,13 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const permanentMarker = Permanent_Marker({
+  variable: "--font-permanent",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Oporto Dancehall 2.0 — Estamos de volta",
   description:
@@ -49,8 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-PT"
-      data-vibe="street"
-      className={`${anton.variable} ${instrument.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${anton.variable} ${instrument.variable} ${inter.variable} ${jetbrains.variable} ${permanentMarker.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col grain">{children}</body>
     </html>

@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { VibeSwitcher } from "@/components/VibeSwitcher";
 
 export const metadata = {
   title: "Contactos · Oporto Dancehall 2.0",
@@ -76,7 +75,6 @@ export default function ContactosPage() {
         </section>
       </main>
       <Footer />
-      <VibeSwitcher />
     </>
   );
 }

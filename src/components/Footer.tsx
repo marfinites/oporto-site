@@ -1,21 +1,30 @@
 import Link from "next/link";
-import { LogoCircle } from "./Logo";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="mt-32 border-t border-[var(--border)]">
+    <footer className="border-t-2 border-[var(--fg)]">
       {/* Massive wordmark band */}
-      <div className="border-b border-[var(--border)] overflow-hidden py-12 md:py-20">
+      <div className="border-b-2 border-[var(--fg)] overflow-hidden py-12 md:py-20 bg-[var(--bg-elevated)]">
         <div className="container-x">
-          <div className="display-xl text-[var(--fg-subtle)] select-none">
-            OPORTO<br/>DANCEHALL<sup className="text-[var(--accent)]">2.0</sup>
+          <div className="display-xl text-[var(--fg)] select-none leading-[0.85]">
+            OPORTO<br />
+            <span className="italic-serif text-[var(--jam-red)]">dancehall</span><br />
+            2.0
           </div>
         </div>
       </div>
 
-      <div className="container-x py-12 grid md:grid-cols-12 gap-8">
+      {/* Jamaica stripe */}
+      <div aria-hidden className="grid grid-cols-3 h-3 md:h-4 border-b-2 border-[var(--fg)]">
+        <div className="bg-[var(--jam-green)]" />
+        <div className="bg-[var(--jam-yellow)]" />
+        <div className="bg-[var(--jam-red)]" />
+      </div>
+
+      <div className="container-x py-14 grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4 flex items-start gap-4">
-          <LogoCircle size={56} className="text-[var(--fg)] shrink-0" />
+          <Logo size={64} variant="black" className="shrink-0 rotate-neg6" />
           <div>
             <p className="text-sm leading-relaxed text-[var(--fg-muted)] max-w-xs">
               Festa de dancehall jamaicano no Porto desde 2014.
@@ -55,8 +64,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[var(--border)] py-6">
-        <div className="container-x flex justify-between mono text-[var(--fg-subtle)]">
+      <div className="border-t-2 border-[var(--fg)] py-6 bg-[var(--fg)] text-[var(--paper)]">
+        <div className="container-x flex justify-between mono">
           <span>© 2014–{new Date().getFullYear()} Oporto Dancehall</span>
           <span>Porto · Portugal</span>
         </div>

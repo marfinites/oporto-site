@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoWordmark } from "./Logo";
+import { Logo } from "./Logo";
 
 const NAV_ITEMS = [
   { href: "/", label: "Início" },
@@ -12,12 +12,16 @@ const NAV_ITEMS = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl bg-[var(--bg)]/85 border-b border-[var(--border)]">
+    <header className="sticky top-0 z-40 bg-[var(--bg)]/95 backdrop-blur-md border-b-2 border-[var(--fg)]">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
-        <Link href="/" className="flex items-center group">
-          <LogoWordmark className="h-9 md:h-11 w-auto" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <Logo size={44} variant="black" />
+          <span className="hidden md:inline-flex flex-col leading-[0.85] font-display text-xl md:text-2xl tracking-tight">
+            <span>OPORTO</span>
+            <span>DANCEHALL</span>
+          </span>
         </Link>
-        <nav className="hidden md:flex gap-7 mono">
+        <nav className="hidden md:flex gap-6 mono">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}

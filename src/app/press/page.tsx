@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { VibeSwitcher } from "@/components/VibeSwitcher";
 import { PRESS, VENUES_PASSADOS, STATS, ARCHIVE } from "@/lib/archive";
 
 export const metadata = {
@@ -167,7 +166,6 @@ export default function PressPage() {
         </section>
       </main>
       <Footer />
-      <VibeSwitcher />
     </>
   );
 }
