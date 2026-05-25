@@ -7,7 +7,7 @@
 
 /* --- VIBE 1: STREET (default) ---
    Crack Magazine / Boiler Room / Notion mag.
-   Off-white warm + dark warm. Zero saturation.
+   Off-white warm + dark warm. Subtle terracotta accent.
    Photography & typography do the work.
 */
 :root,
@@ -18,7 +18,7 @@
   --fg: #141413;
   --fg-muted: #6b6a64;
   --fg-subtle: #b0aea5;
-  --accent: #141413;
+  --accent: #c2553a;
   --accent-fg: #faf9f5;
   --border: #e8e6dc;
   --border-strong: #141413;
