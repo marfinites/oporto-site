@@ -15,7 +15,7 @@ export function Nav() {
     <header className="sticky top-0 z-40 bg-[var(--bg)]/95 backdrop-blur-md border-b-2 border-[var(--fg)]">
       <div className="container-x flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="flex items-center gap-3 group">
-          <Logo size={44} variant="black" />
+          <Logo size={44} className="text-[var(--fg)]" />
           <span className="hidden md:inline-flex flex-col leading-[0.85] font-display text-xl md:text-2xl tracking-tight">
             <span>OPORTO</span>
             <span>DANCEHALL</span>

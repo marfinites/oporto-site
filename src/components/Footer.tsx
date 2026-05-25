@@ -24,7 +24,7 @@ export function Footer() {
 
       <div className="container-x py-14 grid md:grid-cols-12 gap-8">
         <div className="md:col-span-4 flex items-start gap-4">
-          <Logo size={64} variant="black" className="shrink-0 rotate-neg6" />
+          <Logo size={64} className="shrink-0 rotate-neg6 text-[var(--fg)]" />
           <div>
             <p className="text-sm leading-relaxed text-[var(--fg-muted)] max-w-xs">
               Festa de dancehall jamaicano no Porto desde 2014.

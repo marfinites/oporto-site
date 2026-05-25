@@ -45,7 +45,7 @@ export default function Home() {
             {/* Title block */}
             <div className="grid md:grid-cols-12 gap-6 items-center">
               <div className="md:col-span-3 flex justify-start md:justify-center">
-                <Logo size={200} variant="yellow" className="rotate-neg6 drop-shadow-2xl" />
+                <Logo size={200} className="rotate-neg6 drop-shadow-2xl text-[var(--jam-yellow)]" />
               </div>
               <div className="md:col-span-9">
                 <h1 className="display-xl">
@@ -204,7 +204,7 @@ export default function Home() {
         <section className="relative bg-[var(--bg-inverse)] text-[var(--paper)] overflow-hidden">
           <div className="container-x py-24 md:py-36 grid md:grid-cols-12 gap-8 md:gap-16 items-center relative z-10">
             <div className="md:col-span-6">
-              <Logo size={140} variant="white" className="mb-8 rotate-neg6" />
+              <Logo size={140} className="mb-8 rotate-neg6 text-[var(--paper)]" />
               <span className="tag mb-6 inline-flex" style={{ color: "var(--paper)", borderColor: "var(--paper)" }}>
                 Para clubes & promotores
               </span>
