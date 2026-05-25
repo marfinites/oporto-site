@@ -1,0 +1,417 @@
+/**
+ * Curadoria do arquivo Oporto Dancehall (2014-2025).
+ * Fotos e vídeos disponíveis em /public/arquivo/ (146 ficheiros, 19MB).
+ *
+ * IDs seguem a convenção do download.py original (p001-p093).
+ */
+
+export type ArchiveItem = {
+  id: string;
+  type: "photo" | "video";
+  src: string;
+  thumb?: string;
+  alt: string;
+  year: number;
+  era: "2014" | "2015" | "2016" | "2018" | "2025";
+  caption?: string;
+  likes?: number;
+  highlight?: boolean; // destaque na home
+};
+
+export const ARCHIVE: ArchiveItem[] = [
+  // === 2014 — Arranque ===
+  {
+    id: "p084_regresso_16maio",
+    type: "photo",
+    src: "/arquivo/photos/p084_regresso_16maio.jpg",
+    alt: "Oporto Dancehall - regresso 16 maio 2014",
+    year: 2014,
+    era: "2014",
+    caption: "O regresso (Maio 2014) — 152 likes",
+    likes: 152,
+    highlight: true,
+  },
+  {
+    id: "p093_bad_girls",
+    type: "photo",
+    src: "/arquivo/photos/p093_bad_girls_oporto.jpg",
+    alt: "Good girls go to heaven, bad girls go to Oporto Dancehall",
+    year: 2014,
+    era: "2014",
+    caption: "Good girls go to heaven, bad girls go to Oporto Dancehall",
+    likes: 24,
+    highlight: true,
+  },
+  {
+    id: "p087_apoio",
+    type: "photo",
+    src: "/arquivo/photos/p087_mensagens_apoio_2.jpg",
+    alt: "Mensagens de apoio",
+    year: 2014,
+    era: "2014",
+    likes: 72,
+  },
+  {
+    id: "p083_regresso",
+    type: "photo",
+    src: "/arquivo/photos/p083_oporto_regresso_2014.jpg",
+    alt: "Oporto Dancehall regresso 2014",
+    year: 2014,
+    era: "2014",
+    likes: 50,
+  },
+  {
+    id: "p081_armazem",
+    type: "photo",
+    src: "/arquivo/photos/p081_armazem_cha_2014.jpg",
+    alt: "Armazém do Chá 2014",
+    year: 2014,
+    era: "2014",
+  },
+  {
+    id: "p089_convites",
+    type: "photo",
+    src: "/arquivo/photos/p089_convites_disponiveis.jpg",
+    alt: "Convites Spring Break",
+    year: 2014,
+    era: "2014",
+  },
+
+  // === 2015 — Apogeu Hard Club + Armazém do Chá ===
+  {
+    id: "p047_lotacao",
+    type: "video",
+    src: "/arquivo/videos/p047_obrigado_lotacao_video.mp4",
+    thumb: "/arquivo/thumbnails/p047_obrigado_lotacao_thumb.jpg",
+    alt: "Obrigado. Lotação esgotada.",
+    year: 2015,
+    era: "2015",
+    caption: "Obrigado. Lotação esgotada.",
+    likes: 44,
+    highlight: true,
+  },
+  {
+    id: "p013_lastnight",
+    type: "video",
+    src: "/arquivo/videos/p013_last_night_video.mp4",
+    thumb: "/arquivo/thumbnails/p013_last_night_thumb.jpg",
+    alt: "Last Night (vídeo HD 720p)",
+    year: 2015,
+    era: "2015",
+    caption: "Last Night — vídeo HD",
+    likes: 62,
+    highlight: true,
+  },
+  {
+    id: "p046_sempalavras",
+    type: "video",
+    src: "/arquivo/videos/p046_sem_palavras_video.mp4",
+    thumb: "/arquivo/thumbnails/p046_sem_palavras_thumb.jpg",
+    alt: "Sem palavras. #jamaicalove",
+    year: 2015,
+    era: "2015",
+    caption: "Sem palavras. #jamaicalove",
+    likes: 30,
+  },
+  {
+    id: "p034_summer15",
+    type: "video",
+    src: "/arquivo/videos/p034_summer15_video_HD.mp4",
+    thumb: "/arquivo/thumbnails/p034_summer15_thumb.jpg",
+    alt: "Summer Sessions 2015",
+    year: 2015,
+    era: "2015",
+    caption: "Summer Sessions 2015 (HD)",
+    likes: 25,
+  },
+  {
+    id: "p049_elevar",
+    type: "photo",
+    src: "/arquivo/photos/p049_elevar_dancehall.jpg",
+    alt: "Oporto Dancehall a elevar o dancehall",
+    year: 2015,
+    era: "2015",
+    caption: "A elevar o dancehall a outro nível",
+    likes: 39,
+  },
+  {
+    id: "p048_cm",
+    type: "photo",
+    src: "/arquivo/photos/p048_correio_manha.png",
+    alt: "Correio da Manhã destaque",
+    year: 2015,
+    era: "2015",
+    caption: "Imprensa: Correio da Manhã",
+    likes: 6,
+  },
+  {
+    id: "p030_10dias",
+    type: "photo",
+    src: "/arquivo/photos/p030_faltam_10_dias.jpg",
+    alt: "Faltam 10 dias",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p031_14dias",
+    type: "photo",
+    src: "/arquivo/photos/p031_faltam_14_dias.jpg",
+    alt: "Faltam 14 dias",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p052_obrigada_1",
+    type: "photo",
+    src: "/arquivo/photos/p052_obrigada_1.jpg",
+    alt: "Festa Hard Club 2015",
+    year: 2015,
+    era: "2015",
+    likes: 65,
+  },
+  {
+    id: "p052_obrigada_2",
+    type: "photo",
+    src: "/arquivo/photos/p052_obrigada_2.jpg",
+    alt: "Festa 2015",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p053_obrigada2_1",
+    type: "photo",
+    src: "/arquivo/photos/p053_obrigada2_1.jpg",
+    alt: "Festa 2015 (Francisca Garcia)",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p053_obrigada2_2",
+    type: "photo",
+    src: "/arquivo/photos/p053_obrigada2_2.jpg",
+    alt: "Festa 2015",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p042_album_1",
+    type: "photo",
+    src: "/arquivo/photos/p042_album_2015_1.jpg",
+    alt: "Verão Gare Porto 2015",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p042_album_2",
+    type: "photo",
+    src: "/arquivo/photos/p042_album_2015_2.jpg",
+    alt: "Verão Gare Porto 2015",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p042_album_3",
+    type: "photo",
+    src: "/arquivo/photos/p042_album_2015_3.jpg",
+    alt: "Verão Gare Porto 2015",
+    year: 2015,
+    era: "2015",
+  },
+
+  // === 2016 — Carnaval e Crew ===
+  {
+    id: "p011_crew",
+    type: "photo",
+    src: "/arquivo/photos/p011_crew_escola.jpg",
+    alt: "Oporto Dancehall Crew - escola de dancehall",
+    year: 2016,
+    era: "2016",
+    caption: "Anúncio da Crew/Escola — 297 likes (recorde)",
+    likes: 297,
+    highlight: true,
+  },
+  {
+    id: "p006_festao",
+    type: "video",
+    src: "/arquivo/videos/p006_festao_video.mp4",
+    thumb: "/arquivo/thumbnails/p006_festao_thumb.jpg",
+    alt: "Festão",
+    year: 2016,
+    era: "2016",
+    caption: "Festão!!!!",
+    likes: 42,
+  },
+  {
+    id: "p007_overule",
+    type: "video",
+    src: "/arquivo/videos/p007_overule_carnaval.mp4",
+    thumb: "/arquivo/thumbnails/p007_overule_thumb.jpg",
+    alt: "DJ Overule convida",
+    year: 2016,
+    era: "2016",
+    caption: "DJ Overule convida — Carnaval 2016",
+    likes: 14,
+  },
+  {
+    id: "p014_natal",
+    type: "video",
+    src: "/arquivo/videos/p014_feliz_natal_video.mp4",
+    thumb: "/arquivo/thumbnails/p014_feliz_natal_thumb.jpg",
+    alt: "Feliz Natal",
+    year: 2015,
+    era: "2015",
+  },
+  {
+    id: "p012_passagem",
+    type: "video",
+    src: "/arquivo/videos/p012_passagem_ano_video.mp4",
+    thumb: "/arquivo/thumbnails/p012_passagem_ano_thumb.jpg",
+    alt: "Passagem de ano 2015/2016",
+    year: 2015,
+    era: "2015",
+    caption: "Passagem de ano 2015/2016",
+    likes: 37,
+  },
+  {
+    id: "p063_firestarter",
+    type: "photo",
+    src: "/arquivo/photos/p063_firestarter_aniversario.jpg",
+    alt: "Firestarter Sound - 3 aniversário",
+    year: 2016,
+    era: "2016",
+    likes: 72,
+  },
+  {
+    id: "p062_stilllion",
+    type: "photo",
+    src: "/arquivo/photos/p062_stilllion_aniversario.jpg",
+    alt: "Still Lion Sound - 3 aniversário",
+    year: 2016,
+    era: "2016",
+    likes: 31,
+  },
+
+  // === 2025 — Gare Porto Summer Sessions ===
+  {
+    id: "p018_belgica",
+    type: "photo",
+    src: "/arquivo/photos/p018_conexao_belgica.jpg",
+    alt: "Conexão Portugal Bélgica Jamaica",
+    year: 2025,
+    era: "2025",
+    caption: "Conexão PT/BE/JM 2025",
+    likes: 15,
+  },
+  {
+    id: "p020_gare_1",
+    type: "photo",
+    src: "/arquivo/photos/p020_gare_encerramento_1.jpg",
+    alt: "Encerramento Gare Porto 2025",
+    year: 2025,
+    era: "2025",
+    likes: 24,
+  },
+  {
+    id: "p020_gare_2",
+    type: "photo",
+    src: "/arquivo/photos/p020_gare_encerramento_2.jpg",
+    alt: "Encerramento Gare Porto 2025",
+    year: 2025,
+    era: "2025",
+  },
+  {
+    id: "p020_gare_3",
+    type: "photo",
+    src: "/arquivo/photos/p020_gare_encerramento_3.jpg",
+    alt: "Encerramento Gare Porto 2025",
+    year: 2025,
+    era: "2025",
+  },
+  {
+    id: "p024_db_1",
+    type: "photo",
+    src: "/arquivo/photos/p024_daniel_batista_1.jpg",
+    alt: "Daniel Batista 2025",
+    year: 2025,
+    era: "2025",
+  },
+  {
+    id: "p024_db_2",
+    type: "photo",
+    src: "/arquivo/photos/p024_daniel_batista_2.jpg",
+    alt: "Daniel Batista 2025",
+    year: 2025,
+    era: "2025",
+  },
+  {
+    id: "p023_sessao_1",
+    type: "photo",
+    src: "/arquivo/photos/p023_proxima_sessao_1.jpg",
+    alt: "Próxima sessão 2025",
+    year: 2025,
+    era: "2025",
+  },
+  {
+    id: "p009_overule",
+    type: "photo",
+    src: "/arquivo/photos/p009_overule_confirma.jpg",
+    alt: "DJ Overule confirmação",
+    year: 2025,
+    era: "2025",
+    caption: "DJ Overule confirmado",
+    likes: 64,
+  },
+  {
+    id: "p002_amor",
+    type: "photo",
+    src: "/arquivo/photos/p002_coracao.jpg",
+    alt: "Amor",
+    year: 2025,
+    era: "2025",
+    likes: 60,
+  },
+];
+
+export const HIGHLIGHTS = ARCHIVE.filter((i) => i.highlight);
+
+export const PRESS = [
+  { outlet: "Correio da Manhã", year: 2015, type: "destaque impresso" },
+  { outlet: "Jornal de Notícias", year: 2015, type: "menção" },
+  { outlet: "Cidade FM", year: 2015, type: "rádio" },
+  { outlet: "Rádio Nova", year: 2015, type: "rádio" },
+  { outlet: "Dinheiro Vivo", year: 2019, type: "online" },
+  { outlet: "Supakrazy", year: 2015, type: "reportagem fotográfica" },
+];
+
+export const VENUES_PASSADOS = [
+  "Armazém do Chá",
+  "Hard Club",
+  "Gare Porto",
+  "Estado Novo",
+  "Desperados",
+  "Dot Club Porto",
+];
+
+export const ARTISTAS_PASSADOS = [
+  "DJ/MC BOOM (residente)",
+  "DJ Overule",
+  "South",
+  "Konshens (dubplate)",
+  "Charly Black (dubplate + colab)",
+  "Mr. Vegas",
+  "Vybz Kartel",
+  "Tarrus Riley",
+  "Regula",
+  "Pow Pow Movement",
+  "One Vibe Sound",
+  "Still Lion Sound",
+  "Firestarter Sound",
+];
+
+export const STATS = {
+  anos_atividade: 11,
+  festas_realizadas: 30, // aproximado
+  ficheiros_arquivados: 146,
+  top_engagement_post: 297, // crew/escola 2016
+  imprensa_outlets: 6,
+};

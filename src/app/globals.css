@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+/* ===== OPORTO DANCEHALL 2.0 — Design Tokens ===== */
+
+/* Vibe 1: Dark + neon caribean (default) */
+:root,
+[data-vibe="caribean"] {
+  --bg: #0a0a0a;
+  --bg-elevated: #161616;
+  --fg: #fafafa;
+  --fg-muted: #a3a3a3;
+  --accent: #ffd60a;
+  --accent-2: #00a86b;
+  --accent-3: #d62828;
+  --border: #2a2a2a;
+  --font-display: "Bebas Neue", "Impact", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Vibe 2: Minimalist preto + acento amarelo fluor */
+[data-vibe="mono"] {
+  --bg: #000000;
+  --bg-elevated: #0d0d0d;
+  --fg: #ffffff;
+  --fg-muted: #737373;
+  --accent: #d4ff00;
+  --accent-2: #ffffff;
+  --accent-3: #d4ff00;
+  --border: #1a1a1a;
+  --font-display: "Space Grotesk", "Helvetica Neue", sans-serif;
+  --font-body: "Space Grotesk", "Helvetica Neue", sans-serif;
+}
+
+/* Vibe 3: Retro tropical (gradient coral/sunset) */
+[data-vibe="tropical"] {
+  --bg: #1a0b2e;
+  --bg-elevated: #2d1b4e;
+  --fg: #ffe5e5;
+  --fg-muted: #c4a5d4;
+  --accent: #ff6b9d;
+  --accent-2: #ffd23f;
+  --accent-3: #06ffa5;
+  --border: #432970;
+  --font-display: "Monoton", "Bebas Neue", sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-border: var(--border);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  z-index: 100;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Glow accent text */
+.glow {
+  text-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent);
+}
+
+/* Container default */
+.container-x {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x { padding-inline: 2rem; }
+}
