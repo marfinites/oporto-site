@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+potrace.exe
+mkbitmap.exe
+extract_logo.py
+refine_logo.py
+clean_logo.py
+analyze_logo.py
+vectorize_logo.py
+trace_logo.py
